@@ -1,0 +1,177 @@
+// ============================================
+// 색상 변수 (Color Palette)
+// ============================================
+
+// Primary Colors (주요 색상)
+$primary-color: #007bff;
+$primary-dark: #0056b3;
+$primary-light: #0069d9;
+
+// Secondary Colors (보조 색상)
+$secondary-color: #6c757d;
+$secondary-dark: #545b62;
+$secondary-light: #adb5bd;
+
+// Status Colors (상태 색상)
+$success-color: #28a745;
+$danger-color: #dc3545;
+$warning-color: #ffc107;
+$info-color: #17a2b8;
+
+// Neutral Colors (중립 색상)
+$white: #ffffff;
+$light-gray: #f8f9fa;
+$gray: #e9ecef;
+$dark-gray: #495057;
+$black: #212529;
+
+// ============================================
+// 폰트 변수 (Typography)
+// ============================================
+
+$font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+  sans-serif;
+$font-family-heading: "Segoe UI", "Roboto", sans-serif;
+
+// 폰트 사이즈
+$font-size-base: 16px;
+$font-size-sm: 14px;
+$font-size-lg: 18px;
+$font-size-xl: 24px;
+$font-size-2xl: 32px;
+
+// 폰트 굵기
+$font-weight-normal: 400;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// 라인 높이
+$line-height-base: 1.6;
+$line-height-heading: 1.2;
+
+// ============================================
+// 간격 변수 (Spacing)
+// ============================================
+
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+$spacing-2xl: 48px;
+
+// ============================================
+// 브레이크포인트 (Breakpoints)
+// ============================================
+
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-2xl: 1400px;
+
+// ============================================
+// 보더 & 라디우스
+// ============================================
+
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+$border-width: 1px;
+$border-color: #dee2e6;
+
+// ============================================
+// 그림자 (Shadows)
+// ============================================
+
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+$shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+
+// ============================================
+// 트랜지션 & 애니메이션
+// ============================================
+
+$transition-duration: 0.3s;
+$transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+$transition-smooth: all $transition-duration $transition-timing;
+
+// ============================================
+// SCSS 믹스인 (Mixins) - 재사용 가능한 스타일
+// ============================================
+
+// 플렉스박스 센터 정렬
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// 플렉스박스 스페이스 비트윈
+@mixin flex-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// 반응형 디자인 - 미디어 쿼리
+@mixin media-sm {
+  @media (max-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin media-md {
+  @media (max-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin media-lg {
+  @media (min-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+// 텍스트 엘립시스 (말줄임)
+@mixin text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin text-ellipsis-lines($lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// 호버 효과
+@mixin hover-effect {
+  transition: $transition-smooth;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+// 버튼 기본 스타일
+@mixin button-reset {
+  border: none;
+  background: none;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+
+// 센터 컨테이너
+@mixin container-center {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+}

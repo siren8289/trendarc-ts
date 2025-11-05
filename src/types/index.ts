@@ -4,7 +4,6 @@
 
 import React from "react";
 
-// 자식 요소를 받는 컴포넌트용 타입
 export interface WithChildren {
   children?: React.ReactNode;
 }
@@ -39,6 +38,43 @@ export interface FooterProps {
     label: string;
     href: string;
   }>;
+}
+
+// ============================================
+// Trend (트렌드) 데이터 타입 ✅ 새로 추가
+// ============================================
+
+export interface Trend {
+  id: number;
+  title: string;
+  category: string;
+  description: string;
+  icon?: string;
+  color?: string;
+  views?: number;
+  createdAt?: string;
+}
+
+// ============================================
+// Card 컴포넌트 Props 타입 ✅ 새로 추가
+// ============================================
+
+export interface CardProps {
+  // 트렌드 데이터
+  id: number;
+  title: string;
+  category: string;
+  description?: string;
+  icon?: string;
+  color?: string;
+
+  // 이벤트 핸들러 (선택)
+  onClick?: () => void;
+  onDelete?: (id: number) => void;
+
+  // UI 옵션 (선택)
+  variant?: "default" | "featured" | "compact";
+  showDescription?: boolean;
 }
 
 // ============================================

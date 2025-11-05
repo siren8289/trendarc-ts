@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "title": "AI & Machine Learning",
+    "category": "Technology",
+    "description": "Artificial Intelligence continues to revolutionize industries",
+    "icon": "🤖",
+    "color": "from-blue-500 to-blue-600",
+    "views": 15420
+  },
+  {
+    "id": 2,
+    "title": "Web3 & Blockchain",
+    "category": "Technology",
+    "description": "Decentralized internet infrastructure gaining momentum",
+    "icon": "⛓️",
+    "color": "from-purple-500 to-purple-600",
+    "views": 12350
+  },
+  {
+    "id": 3,
+    "title": "Sustainable Fashion",
+    "category": "Lifestyle",
+    "description": "Eco-friendly clothing brands becoming mainstream",
+    "icon": "👗",
+    "color": "from-green-500 to-green-600",
+    "views": 8920
+  },
+  {
+    "id": 4,
+    "title": "Remote Work Culture",
+    "category": "Business",
+    "description": "Hybrid work models reshaping workplace dynamics",
+    "icon": "💼",
+    "color": "from-orange-500 to-orange-600",
+    "views": 11200
+  },
+  {
+    "id": 5,
+    "title": "Mental Health Awareness",
+    "category": "Health",
+    "description": "Focus on mental wellness in corporate environments",
+    "icon": "🧠",
+    "color": "from-pink-500 to-pink-600",
+    "views": 9850
+  },
+  {
+    "id": 6,
+    "title": "Short-form Video Content",
+    "category": "Entertainment",
+    "description": "TikTok, Reels driving content consumption patterns",
+    "icon": "📹",
+    "color": "from-red-500 to-red-600",
+    "views": 18760
+  }
+]
