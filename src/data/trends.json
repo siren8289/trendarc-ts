@@ -2,55 +2,118 @@
   {
     "id": 1,
     "title": "AI & Machine Learning",
-    "category": "Technology",
     "description": "Artificial Intelligence continues to revolutionize industries",
+    "category": "Technology",
+    "date": "2024-01-15",
+    "likes": 320,
+    "views": 15420,
+    "tags": ["tech", "ai", "ml"],
     "icon": "🤖",
     "color": "from-blue-500 to-blue-600",
-    "views": 15420
+    "image": "/images/ai.jpg"
   },
   {
     "id": 2,
     "title": "Web3 & Blockchain",
-    "category": "Technology",
     "description": "Decentralized internet infrastructure gaining momentum",
+    "category": "Technology",
+    "date": "2024-01-20",
+    "likes": 280,
+    "views": 12350,
+    "tags": ["tech", "blockchain", "web3"],
     "icon": "⛓️",
     "color": "from-purple-500 to-purple-600",
-    "views": 12350
+    "image": "/images/web3.jpg"
   },
   {
     "id": 3,
     "title": "Sustainable Fashion",
-    "category": "Lifestyle",
     "description": "Eco-friendly clothing brands becoming mainstream",
+    "category": "Lifestyle",
+    "date": "2024-01-25",
+    "likes": 195,
+    "views": 8920,
+    "tags": ["eco", "fashion"],
     "icon": "👗",
     "color": "from-green-500 to-green-600",
-    "views": 8920
+    "image": "/images/fashion.jpg"
   },
   {
     "id": 4,
     "title": "Remote Work Culture",
-    "category": "Business",
     "description": "Hybrid work models reshaping workplace dynamics",
+    "category": "Business",
+    "date": "2024-02-01",
+    "likes": 410,
+    "views": 11200,
+    "tags": ["work", "remote", "culture"],
     "icon": "💼",
     "color": "from-orange-500 to-orange-600",
-    "views": 11200
+    "image": "/images/work.jpg"
   },
   {
     "id": 5,
     "title": "Mental Health Awareness",
-    "category": "Health",
     "description": "Focus on mental wellness in corporate environments",
+    "category": "Health",
+    "date": "2024-02-10",
+    "likes": 365,
+    "views": 9850,
+    "tags": ["health", "mind", "wellbeing"],
     "icon": "🧠",
     "color": "from-pink-500 to-pink-600",
-    "views": 9850
+    "image": "/images/health.jpg"
   },
   {
     "id": 6,
     "title": "Short-form Video Content",
-    "category": "Entertainment",
     "description": "TikTok, Reels driving content consumption patterns",
+    "category": "Entertainment",
+    "date": "2024-02-18",
+    "likes": 520,
+    "views": 18760,
+    "tags": ["media", "video", "trend"],
     "icon": "📹",
     "color": "from-red-500 to-red-600",
-    "views": 18760
+    "image": "/images/video.jpg"
+  },
+  {
+    "id": 7,
+    "title": "AI 기술의 미래",
+    "description": "인공지능이 바꾸는 세상",
+    "category": "Technology",
+    "date": "2024-03-01",
+    "likes": 290,
+    "views": 14200,
+    "tags": ["tech", "ai"],
+    "icon": "⚙️",
+    "color": "from-indigo-500 to-indigo-600",
+    "image": "/images/ai-future.jpg"
+  },
+  {
+    "id": 8,
+    "title": "미니멀 디자인 트렌드",
+    "description": "심플함 속의 아름다움",
+    "category": "Design",
+    "date": "2024-03-05",
+    "likes": 260,
+    "views": 10100,
+    "tags": ["design", "minimal"],
+    "icon": "🎨",
+    "color": "from-gray-500 to-gray-600",
+    "image": "/images/minimal.jpg"
+  },
+  {
+    "id": 9,
+    "title": "스타트업 성공 전략",
+    "description": "비즈니스 성장의 핵심",
+    "category": "Business",
+    "date": "2024-03-10",
+    "likes": 350,
+    "views": 1000,
+    "tags": ["business", "startup"],
+    "icon": "🚀",
+    "color": "from-yellow-500 to-yellow-600",
+    "image": "/images/startup.jpg"
   }
 ]
