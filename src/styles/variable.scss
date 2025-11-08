@@ -1,8 +1,55 @@
 // ============================================
-// 색상 변수 (Color Palette)
+// 라이트 모드 색상 변수
 // ============================================
+:root {
+  // 배경색
+  --bg-primary: #ffffff;
+  --bg-secondary: #f3f4f6;
+  --bg-card: #ffffff;
 
+  // 텍스트 색상
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+
+  // 테두리
+  --border-color: #e5e7eb;
+
+  // 액센트 색상
+  --accent-blue: #3b82f6;
+  --accent-purple: #8b5cf6;
+  --accent-pink: #ec4899;
+
+  // 카드 그림자
+  --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  --card-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+// ============================================
+// 다크 모드 색상 변수
+// ============================================
+.dark {
+  --bg-primary: #111827;
+  --bg-secondary: #1f2937;
+  --bg-card: #1f2937;
+
+  --text-primary: #f9fafb;
+  --text-secondary: #d1d5db;
+  --text-muted: #9ca3af;
+
+  --border-color: #374151;
+
+  --accent-blue: #60a5fa;
+  --accent-purple: #a78bfa;
+  --accent-pink: #f472b6;
+
+  --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+  --card-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+}
+
+// ============================================
 // Primary Colors (주요 색상)
+// ============================================
 $primary-color: #007bff;
 $primary-dark: #0056b3;
 $primary-light: #0069d9;
@@ -28,7 +75,6 @@ $black: #212529;
 // ============================================
 // 폰트 변수 (Typography)
 // ============================================
-
 $font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
   sans-serif;
 $font-family-heading: "Segoe UI", "Roboto", sans-serif;
@@ -52,7 +98,6 @@ $line-height-heading: 1.2;
 // ============================================
 // 간격 변수 (Spacing)
 // ============================================
-
 $spacing-xs: 4px;
 $spacing-sm: 8px;
 $spacing-md: 16px;
@@ -63,7 +108,6 @@ $spacing-2xl: 48px;
 // ============================================
 // 브레이크포인트 (Breakpoints)
 // ============================================
-
 $breakpoint-sm: 576px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 992px;
@@ -73,7 +117,6 @@ $breakpoint-2xl: 1400px;
 // ============================================
 // 보더 & 라디우스
 // ============================================
-
 $border-radius-sm: 4px;
 $border-radius-md: 8px;
 $border-radius-lg: 12px;
@@ -83,7 +126,6 @@ $border-color: #dee2e6;
 // ============================================
 // 그림자 (Shadows)
 // ============================================
-
 $shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
 $shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
 $shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
@@ -92,7 +134,6 @@ $shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
 // ============================================
 // 트랜지션 & 애니메이션
 // ============================================
-
 $transition-duration: 0.3s;
 $transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
 $transition-smooth: all $transition-duration $transition-timing;
@@ -115,7 +156,26 @@ $transition-smooth: all $transition-duration $transition-timing;
   align-items: center;
 }
 
-// 반응형 디자인 - 미디어 쿼리
+// 반응형 디자인 - 미디어 쿼리 (모바일 우선)
+@mixin mobile {
+  @media (max-width: 640px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 641px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1025px) {
+    @content;
+  }
+}
+
+// 기존 미디어 쿼리 (하위 호환)
 @mixin media-sm {
   @media (max-width: $breakpoint-sm) {
     @content;

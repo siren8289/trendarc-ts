@@ -2,22 +2,27 @@
 @use "./variable.scss" as *;
 
 // ============================================
-// Header 컴포넌트 스타일
+// Header 컴포넌트 스타일 (다크모드 적용)
 // ============================================
 
 header {
-  background: linear-gradient(135deg, $primary-color, $primary-dark);
-  color: $white;
-  box-shadow: $shadow-md;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  box-shadow: var(--card-shadow);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 
   .header-container {
     @include container-center;
     @include flex-space-between;
     padding: $spacing-md;
 
-    @include media-md {
+    @include mobile {
       flex-direction: column;
       gap: $spacing-md;
+      padding: $spacing-sm;
     }
   }
 
@@ -36,12 +41,48 @@ header {
       font-size: $font-size-2xl;
       font-weight: $font-weight-bold;
       margin: 0;
+      background: linear-gradient(
+        135deg,
+        var(--accent-blue),
+        var(--accent-purple)
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+
+      @include mobile {
+        font-size: $font-size-xl;
+      }
+    }
+  }
+
+  // 다크모드 토글 버튼
+  .theme-toggle-btn {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: $transition-smooth;
+
+    @include mobile {
+      width: 40px;
+      height: 40px;
+      font-size: 1.25rem;
     }
 
-    p {
-      font-size: $font-size-sm;
-      color: rgba($white, 0.8);
-      margin: 0;
+    &:hover {
+      transform: rotate(180deg) scale(1.1);
+      border-color: var(--accent-blue);
+    }
+
+    &:active {
+      transform: rotate(180deg) scale(0.95);
     }
   }
 
@@ -49,12 +90,12 @@ header {
     @include flex-center;
     gap: $spacing-lg;
 
-    @include media-md {
+    @include mobile {
       gap: $spacing-md;
     }
 
     a {
-      color: $white;
+      color: var(--text-primary);
       text-decoration: none;
       font-weight: $font-weight-semibold;
       transition: $transition-smooth;
@@ -62,7 +103,7 @@ header {
       border-radius: $border-radius-sm;
 
       &:hover {
-        background-color: rgba($white, 0.1);
+        background-color: var(--bg-secondary);
       }
     }
   }
@@ -73,9 +114,10 @@ header {
 // ============================================
 
 footer {
-  background-color: $black;
-  color: $gray;
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
   margin-top: auto;
+  border-top: 1px solid var(--border-color);
 
   .footer-container {
     @include container-center;
@@ -87,22 +129,22 @@ footer {
     gap: $spacing-lg;
     margin-bottom: $spacing-lg;
     padding-bottom: $spacing-lg;
-    border-bottom: $border-width solid $dark-gray;
+    border-bottom: $border-width solid var(--border-color);
     flex-wrap: wrap;
 
-    @include media-md {
+    @include mobile {
       gap: $spacing-md;
     }
 
     a {
-      color: $gray;
+      color: var(--text-secondary);
       text-decoration: none;
       font-size: $font-size-sm;
       font-weight: $font-weight-semibold;
       transition: $transition-smooth;
 
       &:hover {
-        color: $white;
+        color: var(--text-primary);
       }
     }
   }
@@ -113,13 +155,9 @@ footer {
 
     p {
       margin: $spacing-sm 0;
-
-      &:first-child {
-        color: $gray;
-      }
+      color: var(--text-muted);
 
       &:last-child {
-        color: $secondary-light;
         font-size: 12px;
       }
     }
@@ -134,7 +172,7 @@ footer {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: $light-gray;
+  background-color: var(--bg-primary);
 }
 
 .layout-main {
@@ -144,29 +182,111 @@ footer {
   padding: $spacing-xl $spacing-md;
   animation: fadeIn 0.5s ease-out;
 
-  @include media-md {
+  @include mobile {
     padding: $spacing-lg $spacing-md;
   }
 }
 
 // ============================================
-// Card 컴포넌트 스타일
+// SearchBar 컴포넌트 (다크모드 적용)
+// ============================================
+
+.search-bar {
+  margin: 2rem 0;
+
+  .search-input {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+    transition: all 0.3s;
+
+    &:focus {
+      outline: none;
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    &::placeholder {
+      color: var(--text-muted);
+    }
+
+    @include mobile {
+      padding: 0.75rem;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+// ============================================
+// TagFilter 컴포넌트 (다크모드 적용)
+// ============================================
+
+.tag-filter {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+
+  @include mobile {
+    gap: 0.5rem;
+  }
+
+  .tag-button {
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 20px;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+
+    @include mobile {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.85rem;
+    }
+
+    &:hover {
+      background: var(--bg-secondary);
+      transform: translateY(-2px);
+    }
+
+    &.active {
+      background: var(--accent-blue);
+      color: white;
+      border-color: var(--accent-blue);
+    }
+  }
+}
+
+// ============================================
+// Card 컴포넌트 스타일 (다크모드 적용)
 // ============================================
 
 .card {
-  background-color: $white;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
   border-radius: $border-radius-lg;
-  box-shadow: $shadow-sm;
+  box-shadow: var(--card-shadow);
   padding: $spacing-lg;
   transition: $transition-smooth;
   position: relative;
   overflow: hidden;
   cursor: pointer;
 
+  @include mobile {
+    padding: $spacing-md;
+  }
+
   // 호버 효과
   &:hover {
-    box-shadow: $shadow-xl;
-    transform: translateY(-8px);
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-4px);
   }
 
   // 카드 헤더
@@ -174,40 +294,45 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: $spacing-lg;
+    margin-bottom: $spacing-md;
   }
 
   .card-icon-section {
     display: flex;
     align-items: center;
-    gap: $spacing-md;
-  }
+    gap: $spacing-sm;
 
-  // 아이콘 스타일
-  .card-icon {
-    font-size: 2.5rem;
-    display: inline-block;
-  }
+    .card-icon {
+      font-size: 2rem;
 
-  // 카테고리 배지
-  .category-badge {
-    display: inline-block;
-    background-color: #dbeafe;
-    color: #1e40af;
-    font-size: 0.75rem;
-    font-weight: $font-weight-semibold;
-    padding: $spacing-sm $spacing-md;
-    border-radius: 9999px;
+      @include mobile {
+        font-size: 1.5rem;
+      }
+    }
+
+    .category-badge {
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: $font-weight-semibold;
+
+      @include mobile {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.6rem;
+      }
+    }
   }
 
   // 삭제 버튼
   .card-delete-btn {
-    background: none;
+    background: transparent;
     border: none;
-    color: $gray;
-    font-size: $font-size-lg;
+    color: var(--text-muted);
+    font-size: 1.5rem;
     cursor: pointer;
-    transition: $transition-smooth;
+    transition: all 0.2s;
     padding: 0;
     width: 24px;
     height: 24px;
@@ -216,7 +341,7 @@ footer {
     justify-content: center;
 
     &:hover {
-      color: $danger-color;
+      color: #ef4444;
       transform: scale(1.2);
     }
   }
@@ -225,39 +350,37 @@ footer {
   .card-title {
     font-size: $font-size-xl;
     font-weight: $font-weight-bold;
-    color: $black;
-    margin: 0 0 $spacing-md 0;
+    color: var(--text-primary);
+    margin: 0 0 $spacing-sm 0;
     line-height: $line-height-heading;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+
+    @include mobile {
+      font-size: $font-size-lg;
+    }
   }
 
   // 설명
   .card-description {
+    color: var(--text-secondary);
     font-size: $font-size-base;
-    color: $dark-gray;
     line-height: $line-height-base;
-    margin: 0 0 $spacing-lg 0;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    margin: 0 0 $spacing-md 0;
+
+    @include mobile {
+      font-size: $font-size-sm;
+    }
   }
 
   // 그래디언트 바
   .gradient-bar {
     height: 4px;
-    border-radius: 9999px;
-    margin-top: $spacing-lg;
+    border-radius: 2px;
+    margin-top: $spacing-md;
   }
 
   // Featured variant
   &.featured {
-    border: 2px solid $primary-color;
-    display: flex;
-    flex-direction: column;
+    border: 2px solid var(--accent-blue);
 
     .card-title {
       font-size: $font-size-2xl;
@@ -279,6 +402,27 @@ footer {
 }
 
 // ============================================
+// Grid 레이아웃 (반응형)
+// ============================================
+
+.trends-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+// ============================================
 // 애니메이션
 // ============================================
 
@@ -293,48 +437,75 @@ footer {
   }
 }
 
-.search-bar {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 24px;
+// Header 컴포넌트
+.header {
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--card-shadow);
 
-  .search-input {
-    flex: 1;
-    padding: 10px 16px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    font-size: 14px;
+  @include mobile {
+    padding: 0.75rem 1rem;
+  }
 
-    &:focus {
-      outline: none;
-      border-color: #007bff;
-      box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  .header-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin: 0;
+
+    @include mobile {
+      font-size: 1.25rem;
+    }
+
+    .gradient-text {
+      background: linear-gradient(
+        135deg,
+        var(--accent-blue),
+        var(--accent-purple)
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
   }
 
-  .tag-filter {
+  .theme-toggle-btn {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
+    cursor: pointer;
     display: flex;
-    gap: 1rem;
-    margin: 1rem 0;
-    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
 
-    .tag-button {
-      padding: 0.5rem 1rem;
-      border: 2px solid #ddd;
-      border-radius: 20px;
-      background: white;
-      cursor: pointer;
-      transition: all 0.3s;
+    @include mobile {
+      width: 40px;
+      height: 40px;
+      font-size: 1.25rem;
+    }
 
-      &:hover {
-        background: #f0f0f0;
-      }
+    &:hover {
+      transform: rotate(180deg) scale(1.1);
+      border-color: var(--accent-blue);
+    }
 
-      &.active {
-        background: #007bff;
-        color: white;
-        border-color: #007bff;
-      }
+    &:active {
+      transform: rotate(180deg) scale(0.95);
     }
   }
 }
