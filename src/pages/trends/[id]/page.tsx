@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import type { Trend } from "../../../types";
-import trendsData from "../../../data/trends.json";
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import type { Trend } from '../../../types';
+import trendsData from '../../../data/trends.json';
 
 /**
  * 상세 페이지 컴포넌트
@@ -23,7 +23,7 @@ export const TrendDetail: React.FC = () => {
   useEffect(() => {
     try {
       setTimeout(() => {
-        const trendId = parseInt(id || "0");
+        const trendId = parseInt(id || '0');
         const foundTrend = (trendsData as Trend[]).find(
           (t) => t.id === trendId
         );
@@ -32,21 +32,21 @@ export const TrendDetail: React.FC = () => {
           setTrend(foundTrend);
           setError(null);
         } else {
-          setError("트렌드를 찾을 수 없습니다");
+          setError('트렌드를 찾을 수 없습니다');
           setTrend(null);
         }
         setLoading(false);
       }, 300);
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (_error) {
-      setError("데이터를 로드하는 중 오류가 발생했습니다");
+      setError('데이터를 로드하는 중 오류가 발생했습니다');
       setLoading(false);
     }
   }, [id]);
 
   // Step 4: 이전/다음 트렌드 찾기
   const allTrends = trendsData as Trend[];
-  const currentIndex = allTrends.findIndex((t) => t.id === parseInt(id || "0"));
+  const currentIndex = allTrends.findIndex((t) => t.id === parseInt(id || '0'));
   const prevTrend = currentIndex > 0 ? allTrends[currentIndex - 1] : null;
   const nextTrend =
     currentIndex < allTrends.length - 1 ? allTrends[currentIndex + 1] : null;
@@ -67,10 +67,10 @@ export const TrendDetail: React.FC = () => {
       <div className="max-w-4xl mx-auto px-4 py-12">
         <div className="bg-red-50 border-l-4 border-red-500 rounded-lg p-8 text-center">
           <p className="text-red-700 text-lg font-semibold mb-6">
-            ❌ {error || "트렌드를 찾을 수 없습니다"}
+            ❌ {error || '트렌드를 찾을 수 없습니다'}
           </p>
           <button
-            onClick={() => navigate("/")}
+            onClick={() => navigate('/')}
             className="bg-blue-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-700 transition-all duration-300"
           >
             🏠 홈으로 돌아가기
@@ -131,7 +131,7 @@ export const TrendDetail: React.FC = () => {
             조회수
           </h3>
           <p className="text-3xl font-black text-purple-600">
-            {trend.views ? (trend.views / 1000).toFixed(1) : "0"}K
+            {trend.views ? (trend.views / 1000).toFixed(1) : '0'}K
           </p>
         </div>
       </div>
@@ -157,15 +157,15 @@ export const TrendDetail: React.FC = () => {
           disabled={!prevTrend}
           className={`px-6 py-3 rounded-lg font-bold transition-all duration-300 ${
             prevTrend
-              ? "bg-blue-600 text-white hover:bg-blue-700 cursor-pointer"
-              : "bg-gray-300 text-gray-500 cursor-not-allowed"
+              ? 'bg-blue-600 text-white hover:bg-blue-700 cursor-pointer'
+              : 'bg-gray-300 text-gray-500 cursor-not-allowed'
           }`}
         >
           ← 이전 트렌드
         </button>
 
         <button
-          onClick={() => navigate("/")}
+          onClick={() => navigate('/')}
           className="bg-gray-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-gray-700 transition-all duration-300"
         >
           🏠 홈으로
@@ -176,8 +176,8 @@ export const TrendDetail: React.FC = () => {
           disabled={!nextTrend}
           className={`px-6 py-3 rounded-lg font-bold transition-all duration-300 ${
             nextTrend
-              ? "bg-blue-600 text-white hover:bg-blue-700 cursor-pointer"
-              : "bg-gray-300 text-gray-500 cursor-not-allowed"
+              ? 'bg-blue-600 text-white hover:bg-blue-700 cursor-pointer'
+              : 'bg-gray-300 text-gray-500 cursor-not-allowed'
           }`}
         >
           다음 트렌드 →

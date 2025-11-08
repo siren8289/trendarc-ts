@@ -1,24 +1,24 @@
-import { useState, useEffect } from "react";
-import type { HeaderProps } from "../types";
-import "../styles/components.scss";
+import { useState, useEffect } from 'react';
+import type { HeaderProps } from '../types';
+import '../styles/components.scss';
 
 export const Header: React.FC<HeaderProps> = ({
-  title = "TRENDARC",
-  subtitle = "Trend Analysis Platform",
+  title = 'TRENDARC',
+  subtitle = 'Trend Analysis Platform',
   logoUrl,
 }) => {
   const [isDark, setIsDark] = useState(false);
 
   // 초기 다크모드 상태 로드
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
+    const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
+      '(prefers-color-scheme: dark)'
     ).matches;
 
-    if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
       setIsDark(true);
-      document.documentElement.classList.add("dark");
+      document.documentElement.classList.add('dark');
     }
   }, []);
 
@@ -27,11 +27,11 @@ export const Header: React.FC<HeaderProps> = ({
     setIsDark(!isDark);
 
     if (!isDark) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
     } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
     }
   };
 
@@ -46,7 +46,7 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
         </div>
 
-        <div style={{ display: "flex", alignItems: "center", gap: "2rem" }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
           <nav>
             <a href="#home">Home</a>
             <a href="#about">About</a>
@@ -58,7 +58,7 @@ export const Header: React.FC<HeaderProps> = ({
             className="theme-toggle-btn"
             aria-label="Toggle dark mode"
           >
-            {isDark ? "🌙" : "☀️"}
+            {isDark ? '🌙' : '☀️'}
           </button>
         </div>
       </div>

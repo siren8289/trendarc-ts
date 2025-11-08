@@ -1,8 +1,8 @@
-import React from "react";
-import { Header } from "./Header";
-import { Footer } from "./Footer";
-import type { LayoutProps } from "../types";
-import "../styles/components.scss";
+import React from 'react';
+import { Header } from './Header';
+import { Footer } from './Footer';
+import type { LayoutProps } from '../types';
+import '../styles/components.scss';
 
 export const Layout: React.FC<LayoutProps> = ({
   children,

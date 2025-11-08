@@ -1,6 +1,6 @@
-import React from "react";
-import type { Trend } from "@/types";
-import "../styles/components.scss";
+import React from 'react';
+import type { Trend } from '@/types';
+import '../styles/components.scss';
 
 /**
  * Card 컴포넌트
@@ -9,7 +9,7 @@ import "../styles/components.scss";
  */
 interface CardProps {
   trend: Trend;
-  variant?: "default" | "featured" | "compact";
+  variant?: 'default' | 'featured' | 'compact';
   showDescription?: boolean;
   onClick?: () => void;
   onDelete?: (id: number) => void;
@@ -19,15 +19,15 @@ export const Card: React.FC<CardProps> = ({
   trend,
   onClick,
   onDelete,
-  variant = "default",
+  variant = 'default',
   showDescription = true,
 }) => {
   const variantClass =
-    variant === "featured"
-      ? "featured"
-      : variant === "compact"
-      ? "compact"
-      : "";
+    variant === 'featured'
+      ? 'featured'
+      : variant === 'compact'
+        ? 'compact'
+        : '';
 
   return (
     <div

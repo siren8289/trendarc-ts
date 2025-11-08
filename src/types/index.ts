@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export interface WithChildren {
   children?: React.ReactNode;
@@ -43,7 +43,7 @@ export interface CardProps {
   color?: string;
   onClick?: () => void;
   onDelete?: (id: number) => void;
-  variant?: "default" | "featured" | "compact";
+  variant?: 'default' | 'featured' | 'compact';
   showDescription?: boolean;
 }
 
@@ -51,7 +51,7 @@ export interface CardProps {
 export interface SearchState {
   query: string;
   category: string;
-  sortBy: "relevance" | "views" | "newest";
+  sortBy: 'relevance' | 'views' | 'newest';
 }
 
 export interface SearchBarProps {
@@ -63,8 +63,8 @@ export interface SearchBarProps {
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label: string;
-  variant?: "primary" | "secondary" | "danger" | "success";
-  size?: "sm" | "md" | "lg";
+  variant?: 'primary' | 'secondary' | 'danger' | 'success';
+  size?: 'sm' | 'md' | 'lg';
   loading?: boolean;
 }
 
@@ -72,7 +72,7 @@ export interface User {
   id: number;
   name: string;
   email: string;
-  role: "admin" | "user" | "guest";
+  role: 'admin' | 'user' | 'guest';
   createdAt: Date;
 }
 

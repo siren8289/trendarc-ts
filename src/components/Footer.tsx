@@ -1,14 +1,14 @@
-import React from "react";
-import type { FooterProps } from "../types";
-import "../styles/components.scss";
+import React from 'react';
+import type { FooterProps } from '../types';
+import '../styles/components.scss';
 
 export const Footer: React.FC<FooterProps> = ({
   year = new Date().getFullYear(),
-  companyName = "TRENDNARC Inc.",
+  companyName = 'TRENDNARC Inc.',
   links = [
-    { label: "Privacy Policy", href: "#privacy" },
-    { label: "Terms of Service", href: "#terms" },
-    { label: "Contact Us", href: "#contact" },
+    { label: 'Privacy Policy', href: '#privacy' },
+    { label: 'Terms of Service', href: '#terms' },
+    { label: 'Contact Us', href: '#contact' },
   ],
 }) => {
   return (

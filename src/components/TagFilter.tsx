@@ -7,14 +7,14 @@ export default function TagFilter({
   selectedTag,
   onTagSelect,
 }: TagFilterProps) {
-  const tags = ["all", "tech", "design", "business", "lifestyle"];
+  const tags = ['all', 'tech', 'design', 'business', 'lifestyle'];
 
   return (
     <div className="tag-filter">
       {tags.map((tag) => (
         <button
           key={tag}
-          className={`tag-button ${selectedTag === tag ? "active" : ""}`}
+          className={`tag-button ${selectedTag === tag ? 'active' : ''}`}
           onClick={() => onTagSelect(tag)}
         >
           {tag}
